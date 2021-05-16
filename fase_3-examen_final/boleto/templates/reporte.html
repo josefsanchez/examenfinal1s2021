@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+ 
+{% block content %}
+<h1>Valores Almacenados</h1>
+    {% for instance in object_list %}
+        <p>{{ instance.id}} - {{instance.subtotal}} - {{instance.desc}} - {{instance.total}}</p>
+    {% endfor %}
+{% endblock  %}

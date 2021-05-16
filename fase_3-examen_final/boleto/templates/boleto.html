@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+        <h1>Página para compra de boletos</h1>
+    
+        <table class="center">
+            <thead>
+                <tr>
+                    <th>Tipo de servicio</th>
+                    <th>Primera clase</th>
+                    <th>Segunda clase</th>
+                    <th>Tercera clase</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Comida</td>
+                    <td>50</td>
+                    <td>40</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>Bebida</td>
+                    <td>35</td>
+                    <td>25</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Película</td>
+                    <td>70</td>
+                    <td>55</td>
+                    <td>25</td>
+                </tr>
+            </tbody>
+
+        </table>
+        <br>
+        
+        
+        <form method='POST'> {% csrf_token %}
+        {{ formi.as_p }}
+        <p>Subtotal:{{st}}</p>
+        <p>Descuento:{{td}}%</p>
+        <p>Total:{{tt}}</p>
+        <input type='submit' value='calcular' />
+        
+        </form>
+        
+  <a href="{% url 'reporte' %}" target="_blank">Reporte</a> 
+      
+{% endblock  %}

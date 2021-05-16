@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Compra de boletos</title>
+    </head>
+    <body>
+        <h1>Página para compra de boletos</h1>
+    
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo de servicio</th>
+                    <th>Primera clase</th>
+                    <th>Segunda clase</th>
+                    <th>Tercera clase</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Comida</td>
+                    <td>50</td>
+                    <td>40</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>Bebida</td>
+                    <td>35</td>
+                    <td>25</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Película</td>
+                    <td>70</td>
+                    <td>55</td>
+                    <td>25</td>
+                </tr>
+            </tbody>
+
+        </table>
+        <br>
+        <form  method="POST" action="{% url 'calcular' %}">
+        {% csrf_token %}
+            <label>Tipo de servicio</label>
+            <select name="clase">
+                <option value="1">Primera clase</option>
+                <option value="2">Segunda clase</option>
+                <option value="3">Tercera clase</option>
+            </select>
+            <br>
+            <label>Comida</label>
+            <input type="number" name="Comida">
+            <br>
+            <label>Bebida</label>
+            <input type="number" name="Bebida">
+            <br>
+            <label>Película</label>
+            <input type="number" name="´Película">
+            <br>
+            <label>Clase</label>
+            <input type="text" value="0" class="display" name="clase">{{result}}</input>
+            <br>
+            <input type="submit" name="submit" value="calcular">
+            
+        </form>
+    </body>
+
+
+</html>
